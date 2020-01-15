@@ -1,8 +1,21 @@
 <template>
   <div>
-    <nuxt />
+    <NavBar />
+    <main>
+      <nuxt />
+    </main>
   </div>
 </template>
+
+<script>
+import NavBar from '~/components/NavBar.vue'
+
+export default {
+  components: {
+    NavBar
+  }
+}
+</script>
 
 <style>
 html {
@@ -28,6 +41,7 @@ html {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #3b8070;
+  background-color: #fff;
   color: #3b8070;
   text-decoration: none;
   padding: 10px 30px;
@@ -42,6 +56,7 @@ html {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #35495e;
+  background-color: #fff;
   color: #35495e;
   text-decoration: none;
   padding: 10px 30px;
@@ -51,5 +66,21 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.button--light-green {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #00C58E;
+  background-color: #fff;
+  color: #00C58E;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--light-green:hover {
+  color: #fff;
+  background-color: #00C58E;
 }
 </style>

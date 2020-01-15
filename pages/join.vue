@@ -4,19 +4,19 @@
       <nuxt-link to="/">
         <Logo class="logo" />
       </nuxt-link>
-      <LoginForm />
+      <JoinForm />
     </div>
   </b-container>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-import LoginForm from '~/components/LoginForm.vue'
+import JoinForm from '~/components/JoinForm.vue'
 
 export default {
   components: {
     Logo,
-    LoginForm
+    JoinForm
   }
 }
 </script>

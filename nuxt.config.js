@@ -44,6 +44,7 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     '@nuxtjs/pwa'
   ],
   /*
@@ -51,6 +52,21 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://vo-c1.21-school.ru:8081/api/v0.1/'
+  },
+  auth: {
+    localStorage: false,
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'token/login/', method: 'post', propertyName: 'auth_token' },
+          logout: { url: 'token/logout/', method: 'post' },
+          user: { url: '/users/me/', method: 'get', propertyName: 'username' }
+        },
+        tokenRequired: true,
+        tokenType: 'Token'
+      }
+    }
   },
   /*
   ** Build configuration
@@ -61,5 +77,12 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  /**
+   * Server module configuration
+   */
+  server: {
+    port: 8080, // default: 3000
+    host: '0.0.0.0' // default: localhost
   }
 }
