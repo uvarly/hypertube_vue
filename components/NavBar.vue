@@ -62,7 +62,8 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item
-            to="/logout"
+            @click="logout"
+            to="/"
           >
             Logout
           </b-nav-item>
@@ -78,6 +79,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  methods: {
+    logout () {
+      this.$auth.logout()
+    }
   }
 }
 </script>

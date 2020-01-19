@@ -25,19 +25,6 @@
         </div>
       </div>
     </b-container>
-    <div
-      v-else
-      class="d-flex justify-content-center links"
-    >
-      <a
-        v-if="this.$auth.loggedIn"
-        @click="logout()"
-        href="#"
-        class="button--light-green"
-      >
-        Logout
-      </a>
-    </div>
   </div>
 </template>
 
@@ -51,11 +38,6 @@ export default {
   },
   data () {
     return {}
-  },
-  methods: {
-    logout () {
-      this.$auth.logout()
-    }
   }
 }
 </script>

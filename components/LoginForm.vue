@@ -6,11 +6,12 @@
     >
       <b-form-input
         id="input-username"
-        v-model="form.username"
+        v-model.trim="$v.username.$model"
         type="text"
-        required
-        placeholder="Username"
       />
+      <b-form-invalid-feedback :state="!$v.username.$error">
+        This field cannot be empty
+      </b-form-invalid-feedback>
     </b-form-group>
     <b-form-group
       label="Password"
@@ -18,19 +19,19 @@
     >
       <b-form-input
         id="input-password"
-        v-model="form.password"
+        v-model.trim="$v.password.$model"
         type="password"
-        required
-        placeholder="Password"
       />
+      <b-form-invalid-feedback :state="!$v.password.$error">
+        This field cannot be empty
+      </b-form-invalid-feedback>
     </b-form-group>
-    <nuxt-link
-      to="/recover"
-    >
-      Forgot password?
-    </nuxt-link>
     <div>
-      <button class="button--green btn-sm" type="submit">
+      <button
+        :disabled="$v.username.$invalid || $v.password.$invalid"
+        class="button--green btn-sm"
+        type="submit"
+      >
         Submit
       </button>
       <nuxt-link
@@ -40,35 +41,41 @@
         Join
       </nuxt-link>
     </div>
-    <b-form-invalid-feedback :state="validateForm">
+    <b-form-invalid-feedback :state="loginStatus">
       Please try again
     </b-form-invalid-feedback>
   </b-form>
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators'
+
 export default {
   data () {
     return {
-      form: {
-        username: '',
-        password: ''
-      },
-      errors: []
+      username: '',
+      password: '',
+      loginStatus: null
     }
   },
-  computed: {
-    validateForm () {
-      return this.errors.length === 0
+  validations: {
+    username: {
+      required
+    },
+    password: {
+      required
     }
   },
   methods: {
     login () {
       this.$auth.loginWith('local', {
-        data: this.form
+        data: {
+          username: this.username,
+          password: this.password
+        }
       })
-        .catch((error) => {
-          this.errors.push(error)
+        .catch(() => {
+          this.loginStatus = false
         })
     }
   }
