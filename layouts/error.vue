@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <LayoutNavBar />
-    <main>
-      <nuxt />
-    </main>
+  <div class="container">
+    <h1>
+      You picked the wrong house, fool
+    </h1>
+    <nuxt-link to="/">
+      Home page
+    </nuxt-link>
   </div>
 </template>
 
 <script>
-import LayoutNavBar from '~/components/LayoutNavBar.vue'
-
 export default {
-  components: {
-    LayoutNavBar
-  }
+  layout: 'blog' // you can set a custom layout for the error page
 }
 </script>
 

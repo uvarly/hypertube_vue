@@ -14,13 +14,13 @@
             to="/login"
             class="button--green"
           >
-            Login
+            Log in
           </nuxt-link>
           <nuxt-link
             to="/join"
             class="button--grey"
           >
-            Register
+            Join
           </nuxt-link>
         </div>
       </div>
@@ -32,7 +32,6 @@
 import LogoDesktop from '~/components/LogoDesktop.vue'
 
 export default {
-  auth: false,
   components: {
     LogoDesktop
   },

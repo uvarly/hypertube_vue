@@ -14,6 +14,8 @@ import Logo from '~/components/Logo.vue'
 import LoginForm from '~/components/LoginForm.vue'
 
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   components: {
     Logo,
     LoginForm

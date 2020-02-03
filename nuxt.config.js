@@ -51,7 +51,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://vo-c1.21-school.ru:8081/api/v0.1/'
+    baseURL: 'http://oa-c6.21-school.ru:8081/api/v0.1/'
   },
   auth: {
     localStorage: false,

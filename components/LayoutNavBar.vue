@@ -29,9 +29,14 @@
             Profile
           </b-nav-item>
           <b-nav-item
-            to="#"
+            to="/settings"
           >
             Settings
+          </b-nav-item>
+          <b-nav-item
+            to="#"
+          >
+            {{ $auth.user }}
           </b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
@@ -65,7 +70,7 @@
             @click="logout"
             to="/"
           >
-            Logout
+            Sign Out
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>

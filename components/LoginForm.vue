@@ -26,7 +26,7 @@
         This field cannot be empty
       </b-form-invalid-feedback>
     </b-form-group>
-    <div>
+    <div class="links">
       <button
         :disabled="$v.username.$invalid || $v.password.$invalid"
         class="button--green btn-sm"
@@ -39,6 +39,12 @@
         class="button--grey btn-sm"
       >
         Join
+      </nuxt-link>
+      <nuxt-link
+        to="/reset"
+        class="button--light-green btn-sm"
+      >
+        Reset Password
       </nuxt-link>
     </div>
     <b-form-invalid-feedback :state="loginStatus">
@@ -81,3 +87,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.links {
+  padding-top: 15px;
+}
+</style>
